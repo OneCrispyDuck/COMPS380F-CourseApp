@@ -1,21 +1,51 @@
+# Ignore Gradle build output
 .gradle
 **/build/
 !src/**/build/
+build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+# Avoid ignoring Gradle wrapper files
 !gradle-wrapper.jar
-
-# Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
 
 # Cache of project
 .gradletasknamecache
 
-# Eclipse Gradle plugin generated files
-# Eclipse Core
+# Eclipse IDE specific files
 .project
-# JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# Spring Tool Suite (STS)
+.apt_generated
+.factorypath
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Visual Studio Code
+.vscode/
+
+# Helper files
+HELP.md
