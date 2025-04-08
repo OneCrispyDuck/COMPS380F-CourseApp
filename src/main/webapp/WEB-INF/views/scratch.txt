@@ -1,0 +1,9 @@
+src/main/webapp/WEB-INF/views/
+
+This is where you will store all your JSP files like:
+
+index.jsp
+register.jsp
+login.jsp
+lecture.jsp
+poll.jsp

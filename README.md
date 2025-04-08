@@ -36,24 +36,49 @@ src/main/java/com/onlinecourse
 src/main/webapp/WEB-INF/views
 └── *.jsp           # JSP view files with JSTL and EL
 
-## 📁 Suggested Folder Structure to Commit
+## 📁 Suggested Folder Structure to Commit (DIRECTORY SET UP)
+Sub-Packages for MVC Structure
+Inside src/main/java/com/onlinecourse/courseapp/, create the following packages:
+
+- controller – for your Spring MVC controllers (e.g., UserController, LectureController)
+- model – for entity classes (e.g., User, Lecture, Poll, Comment)
+- repository – for interfaces that extend JpaRepository
+- service – for service layer logic (optional but recommended)
+- config – for Spring configurations like SecurityConfig
 ```
-src/
-└── main/
-    ├── java/
-    │   └── com/
-    │       └── onlinecourse/
-    │           ├── controller/
-    │           ├── model/
-    │           ├── repository/
-    │           ├── service/
-    │           └── config/
-    └── webapp/
-        └── WEB-INF/
-            └── views/
+courseapp/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── onlinecourse/
+│       │           └── courseapp/
+│       │               ├── CourseappApplication.java
+│       │               ├── controller/
+│       │               ├── model/
+│       │               ├── repository/
+│       │               ├── service/
+│       │               └── config/
+│       ├── resources/
+│       └── webapp/
+│           └── WEB-INF/
+│               └── views/
 ```
 
 > Note: JSP support requires additional dependencies such as `tomcat-embed-jasper` and JSTL libraries, and all JSP files must reside under `WEB-INF/views/` to prevent direct access [[2]](https://poe.com/citation?message_id=373816026808&citation=2)[[5]](https://poe.com/citation?message_id=373816026808&citation=5).
+> JSP View Directory
+Under src/main, manually create the following directory structure for your JSP files:
+```
+src/main/webapp/WEB-INF/views/
+```
+This is where you will store all your JSP files like:
+
+index.jsp
+register.jsp
+login.jsp
+lecture.jsp
+poll.jsp
+
 
 ## ⚙️ Configuration
 
