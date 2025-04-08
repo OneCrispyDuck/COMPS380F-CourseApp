@@ -132,7 +132,7 @@ Spring Boot does not support **JSP out-fo-the-box**.
 - compileOnly for Jasper avoids conflicts with Tomcat’s embedded server.
 ```
 #### Core spring boot & additional features:
-```kotlin
+```build.gradle.kts
 implementation("org.springframework.boot:spring-boot-starter-web")
 implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 implementation("org.springframework.boot:spring-boot-starter-security")
@@ -141,7 +141,7 @@ implementation("org.springframework.boot:spring-boot-devtools")
 These handle the core web, data access (JPA), security, and dev-time enhancements.
 
 #### H2 In-Memory Database:
-```kotlin
+```
 implementation("com.h2database:h2")
 ```
 This is perfect for development and testing, and matches the application.properties H2 config.
