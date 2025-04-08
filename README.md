@@ -35,6 +35,22 @@ src/main/java/com/onlinecourse
 
 src/main/webapp/WEB-INF/views
 └── *.jsp           # JSP view files with JSTL and EL
+
+## 📁 Suggested Folder Structure to Commit
+```
+src/
+└── main/
+    ├── java/
+    │   └── com/
+    │       └── onlinecourse/
+    │           ├── controller/
+    │           ├── model/
+    │           ├── repository/
+    │           ├── service/
+    │           └── config/
+    └── webapp/
+        └── WEB-INF/
+            └── views/
 ```
 
 > Note: JSP support requires additional dependencies such as `tomcat-embed-jasper` and JSTL libraries, and all JSP files must reside under `WEB-INF/views/` to prevent direct access [[2]](https://poe.com/citation?message_id=373816026808&citation=2)[[5]](https://poe.com/citation?message_id=373816026808&citation=5).
