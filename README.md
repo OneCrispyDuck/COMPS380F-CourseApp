@@ -26,6 +26,7 @@ This project serves as a starter template for developing a secure, data-driven w
 ## 📂 Project Structure
 
 ```
+```
 src/main/java/com/onlinecourse
 ├── controller      # Handles HTTP requests
 ├── model           # Contains JPA entity classes
@@ -35,7 +36,7 @@ src/main/java/com/onlinecourse
 
 src/main/webapp/WEB-INF/views
 └── *.jsp           # JSP view files with JSTL and EL
-
+```
 ## 📁 Suggested Folder Structure to Commit (DIRECTORY SET UP)
 Sub-Packages for MVC Structure
 Inside src/main/java/com/onlinecourse/courseapp/, create the following packages:
@@ -94,8 +95,65 @@ spring.datasource.password=password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
+🔍 Explanation of Properties
+- spring.datasource.url=jdbc:h2:mem:courseappdb
+Sets up an in-memory H2 database named courseappdb.
 
-> For more configuration options, refer to [application.properties best practices] [[3]](https://poe.com/citation?message_id=373816026808&citation=3)[[4]](https://poe.com/citation?message_id=373816026808&citation=4).
+- spring.jpa.hibernate.ddl-auto=update
+Automatically updates the database schema based on your entity classes.
+
+- spring.h2.console.enabled=true
+Enables access to the H2 web console. You can visit it at:
+👉 http://localhost:8080/h2-console
+
+- spring.mvc.view.prefix=/WEB-INF/views/
+Tells Spring Boot where to look for JSP files.
+
+- spring.mvc.view.suffix=.jsp
+Automatically appends .jsp to view names returned by your controllers.
+This setup is aligned with the configurations discussed in our course material for using Spring Boot with H2 and JSP
+
+Verdic:
+_application.properties_ file is aligned with the Spring Boot setup for:
+- H2 in-memory database usage
+- JSP-based view rendering
+- Enabling and accessing the H2 developer console
+> For more configuration options, refer to [application.properties best practices] 
+
+## build.gradle.kts:
+To ensure proper JSP and JSTL support in Spring Boot application, additions are essential for rendering .jsp files correctly at runtime.
+Spring Boot does not support **JSP out-fo-the-box**. 
+
+🔍 Why These Dependencies?
+```
+- tomcat-embed-jasper: Enables JSP rendering inside embedded Tomcat.
+- jakarta.servlet.jsp.jstl-api and org.glassfish.web:jakarta.servlet.jsp.jstl: Provide JSTL tag libraries support (like <c:forEach>, <c:if>).
+- jakarta.el-api: Supports ${} expression language used in JSPs.
+- compileOnly for Jasper avoids conflicts with Tomcat’s embedded server.
+```
+#### Core spring boot & additional features:
+```kotlin
+implementation("org.springframework.boot:spring-boot-starter-web")
+implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+implementation("org.springframework.boot:spring-boot-starter-security")
+implementation("org.springframework.boot:spring-boot-devtools")
+```
+These handle the core web, data access (JPA), security, and dev-time enhancements.
+
+#### H2 In-Memory Database:
+```kotlin
+implementation("com.h2database:h2")
+```
+This is perfect for development and testing, and matches the application.properties H2 config.
+build.gradle.kts is now fully configured for JSP, JSTL, H2, and Spring Boot development.
+
+You can now:
+```
+- Place JSP files in /src/main/webapp/WEB-INF/views/
+- Use JSTL tags (<c:forEach>, <c:if>, etc.) in your JSP views
+- Use EL syntax like ${user.username} safely
+- Access your in-memory database at http://localhost:8080/h2-console
+```
 
 ## 🛠️ How to Run
 

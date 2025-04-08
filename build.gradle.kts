@@ -18,7 +18,22 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
+	// Core Spring Boot dependencies
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-devtools")
+
+	// H2 Database
+	implementation("com.h2database:h2")
+
+	// JSP and JSTL support
+	compileOnly("org.apache.tomcat.embed:tomcat-embed-jasper") // Required for JSP rendering
+	implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api") // JSTL API
+	implementation("org.glassfish.web:jakarta.servlet.jsp.jstl") // JSTL implementation
+	implementation("jakarta.el:jakarta.el-api") // Expression Language
+
+	// Testing
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
