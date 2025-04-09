@@ -10,6 +10,13 @@
     <form method="post" action="/register">
         Username: <input type="text" name="username"/><br/>
         Password: <input type="password" name="password"/><br/>
+
+        Role:
+        <select name="role">
+            <option value="STUDENT">Student</option>
+            <option value="TEACHER">Teacher</option>
+        </select><br/>
+
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="submit" value="Register"/>
     </form>

@@ -14,7 +14,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/register", "/login", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/resources/**", "/register", "/login").permitAll()
+                        .requestMatchers("/lectures/upload").hasRole("TEACHER")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
@@ -30,3 +31,12 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
+
+/*
+@EnableWebSecurity	✅	Required to enable Spring Security configuration.
+UserDetailsService via UserRepository	✅	Properly loads user by username and maps to Spring Security User object.
+PasswordEncoder (BCrypt)	✅	Secure choice for password hashing.
+formLogin() and logout() config	✅	Custom login/logout pages, with CSRF enabled.
+Role-based restriction (hasRole("TEACHER"))	✅	Ensures only teachers can access /lectures/upload.
+ */
